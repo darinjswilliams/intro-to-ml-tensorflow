@@ -41,13 +41,9 @@ def predict(input_args, top_k=5):
     np_image = np.asarray(image)   # convert to numpy array
     class_names = get_category_names() # get category name of flowers
 
-    process_return_image = process_image(image=np_image)
-    print('Image Return:', process_return_image)
-
+    process_return_image = process_image(image=np_image)    # Normalize image and return a numpy array
     process_return_image = np.expand_dims(process_return_image, axis=0) #add new axis dimension to array
-
-    model = get_model(input_args)
-    print('Model:', model)
+    model = get_model(input_args)  # load the model
     predictions = model.predict(process_return_image)   # make the prediction using the model
 
 
@@ -77,10 +73,8 @@ def main():
                                      top_k = input_args.top_k)
 
     if input_args.category_names == '':
-        print(True)
         print_information(ps=ps,class_names=class_name) # print probabilities, label class name, flower name
     else:
-        print(False)
         print_information(ps=ps,class_names=class_name, flower_names=flower)   #only print the probabilities and label class names
 
 

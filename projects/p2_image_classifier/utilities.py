@@ -93,7 +93,6 @@ def get_image_for_prediction(input_args):
     SystemExit: Exits the program if the provided path does not exist.
     """
     image_path = input_args.input
-    print(image_path)
     if pathlib.Path(str(image_path)).exists() is False:
         print('No Path Exists for this Image file')
         exit(1)

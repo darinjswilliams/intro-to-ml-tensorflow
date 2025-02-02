@@ -23,7 +23,6 @@ def get_model(args):
     """
     dir_path = os.path.join(str(DATA_ROOT), args.saved_dir)
     file_path = os.path.join(dir_path, args.checkpoint)
-    print(file_path)
     if pathlib.Path(str(file_path)).exists() is False:
         print('The Model Path does not exist')
         exit(1)
