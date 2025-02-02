@@ -1,7 +1,7 @@
-import argparse
+import os
 
 import tensorflow_hub as hub
-import os
+
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
 
 
@@ -10,7 +10,6 @@ import pathlib
 from tensorflow.keras.utils import  custom_object_scope
 from tensorflow.keras.models import load_model
 
-from makeparse import make_parser
 from config import DATA_ROOT
 
 
@@ -33,11 +32,4 @@ def get_model(args):
         reloaded_keras_model = load_model(file_path, compile=False)
 
     return reloaded_keras_model
-
-
-if __name__ == '__main__':
-    parser = make_parser()
-    print(parser.category_names)
-    model = get_model(parser)
-    print(model.summary())
 
