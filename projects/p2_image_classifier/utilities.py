@@ -4,6 +4,7 @@ import pathlib
 
 import tensorflow as tf
 from PIL import Image
+from makeparse import make_parser
 
 IMAGE_SIZE = 224
 
